@@ -83,3 +83,10 @@ COPY root/ /
 # ports and volumes
 EXPOSE 8080
 VOLUME /config
+
+RUN
+echo "**** install extra packages ****" && \
+  apk add --no-cache \
+    git \
+    ffmpeg && \
+    git clone https://github.com/clinton-hall/nzbToMedia.git /app/sabnzbd/scripts/nzbToMedia \

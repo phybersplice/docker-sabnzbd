@@ -84,7 +84,7 @@ COPY root/ /
 EXPOSE 8080
 VOLUME /config
 
-RUN
+RUN \
 echo "**** install extra packages ****" && \
   apk add --no-cache \
     git \

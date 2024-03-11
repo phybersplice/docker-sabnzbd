@@ -18,7 +18,7 @@ ENV HOME="/config" \
 RUN \
   echo "**** install packages ****" && \
   apk add -U --update --no-cache --virtual=build-dependencies \
-    autoconf \
+  autoconf \
     automake \
     build-base \
     libffi-dev \
@@ -27,7 +27,7 @@ RUN \
   apk add  -U --update --no-cache \
     7zip \
     python3 && \
-  echo "**** install sabnzbd ****" && \
+  echo "**** install sabnzbd ****" && \  
   if [ -z ${SABNZBD_VERSION+x} ]; then \
     SABNZBD_VERSION=$(curl -s https://api.github.com/repos/sabnzbd/sabnzbd/releases/latest \
       | awk '/tag_name/{print $4;exit}' FS='[""]'); \
@@ -67,7 +67,7 @@ RUN \
   make && \
   make check && \
   make install && \
-  echo "**** install nzb-notify ****" && \
+  echo "**** install nzb-notify ****" && \   
   NZBNOTIFY_VERSION=$(curl -s https://api.github.com/repos/caronc/nzb-notify/releases/latest \
     | awk '/tag_name/{print $4;exit}' FS='[""]') && \
   mkdir -p /app/nzbnotify && \

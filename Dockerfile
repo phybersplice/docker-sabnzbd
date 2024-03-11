@@ -95,3 +95,10 @@ COPY --from=unrar /usr/bin/unrar-alpine /usr/bin/unrar
 # ports and volumes
 EXPOSE 8080
 VOLUME /config
+
+RUN \
+echo "**** install extra packages ****" && \
+  apk add --no-cache \
+    git \
+    ffmpeg && \
+    git clone https://github.com/clinton-hall/nzbToMedia.git /app/sabnzbd/scripts/nzbToMedia \
